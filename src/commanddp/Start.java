@@ -16,6 +16,7 @@ import commanddp.model.EditorModel;
 /**
  *
  * @author Christian
+ * Die Startklasse realisiert das DP "Builder"
  */
 public class Start 
 {
