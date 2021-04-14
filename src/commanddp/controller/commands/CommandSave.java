@@ -29,22 +29,11 @@ public class CommandSave implements CommandInterface
   public void execute()
   {
     JFileChooser fc = view.getFcOpenSave();
-    int choice = fc.showOpenDialog(view);
+    int choice = fc.showSaveDialog(view);
     if(choice == JFileChooser.APPROVE_OPTION)
     {
       File f = fc.getSelectedFile();
       
-      for(int i = 0; view.getEditorTable().getRowCount() > i; i++)
-      {
-       for(int j = 0; view.getEditorTable().getColumnCount() > j; j++)
-       {
-         //model.spalteHinzufuegen(view.getEditorTable().getValueAt(i, j).toString());
-         model.eintragHinzufuegen();
-         view.getFileLabel().setText(view.getEditorTable().getRowCount() + " " + view.getEditorTable().getColumnCount());
-         //view.getFileLabel().setText(model.getRowCount() + " " + model.getColumnCount());
-         //view.getEditorTable().setValueAt(model.getValueAt(i,j), i, j);
-       }
-      }      
       
       try
       {

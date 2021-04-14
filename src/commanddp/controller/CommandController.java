@@ -51,9 +51,9 @@ public class CommandController implements ActionListener
     invoker.addCommand(view.getButtonOpen(), cmdOpen);
     invoker.addCommand(view.getPmOpen(), cmdOpen);
     
-    invoker.addCommand(view.getBtnSave(), cmdOpen);
-    invoker.addCommand(view.getButtonSave(), cmdOpen);
-    invoker.addCommand(view.getPmSave(), cmdOpen);
+    invoker.addCommand(view.getBtnSave(), cmdSave);
+    invoker.addCommand(view.getButtonSave(), cmdSave);
+    invoker.addCommand(view.getPmSave(), cmdSave);
   }
   
   /**
