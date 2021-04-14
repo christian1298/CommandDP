@@ -8,6 +8,8 @@ package commanddp.controller.commands;
 
 import commanddp.View.EditorView;
 import commanddp.model.EditorModel;
+import java.io.File;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -26,6 +28,23 @@ public class CommandOpen implements CommandInterface
   @Override
   public void execute()
   {
+    //Preferences
+    JFileChooser fc = view.getFcOpenSave();
+    int choice = fc.showOpenDialog(view);
+    if(choice == JFileChooser.APPROVE_OPTION)
+    {
+      File f = fc.getSelectedFile();
+      view.getFileLabel().setText("File: " + f.getAbsolutePath());
+      
+      try
+      {
+        model.datenLesen(f);
+      }
+      catch (Exception ex)
+      {
+        view.getFileLabel().setText(ex.toString());
+      }
+    }
   }
 
   @Override
