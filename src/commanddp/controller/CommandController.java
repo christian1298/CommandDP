@@ -7,6 +7,7 @@
 package commanddp.controller;
 
 import commanddp.View.EditorView;
+import commanddp.controller.commands.CommandDelete;
 import commanddp.controller.commands.CommandInvoker;
 import commanddp.controller.commands.CommandOpen;
 import commanddp.controller.commands.CommandSave;
@@ -46,6 +47,7 @@ public class CommandController implements ActionListener
   {
     CommandOpen cmdOpen = new CommandOpen(view,model);
     CommandSave cmdSave = new CommandSave(view,model);
+    CommandDelete cmdDelete = new CommandDelete(view,model);
     
     invoker.addCommand(view.getBtnOpen(), cmdOpen);
     invoker.addCommand(view.getButtonOpen(), cmdOpen);
@@ -54,6 +56,8 @@ public class CommandController implements ActionListener
     invoker.addCommand(view.getBtnSave(), cmdSave);
     invoker.addCommand(view.getButtonSave(), cmdSave);
     invoker.addCommand(view.getPmSave(), cmdSave);
+    
+    invoker.addCommand(view.getPmDelete(), cmdDelete);
   }
   
   /**

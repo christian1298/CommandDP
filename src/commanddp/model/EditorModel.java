@@ -38,8 +38,6 @@ public class EditorModel extends AbstractTableModel
     adressEintraegeDaten.add("Lehner");
     adressEintraegeNamen.add("Telefon");
     adressEintraegeDaten.add("122345");
-    adressEintraegeDaten.add("122345");
-    adressEintraegeDaten.add("122345");
     daten.add(adressEintraegeDaten);
     
   }

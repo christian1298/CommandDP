@@ -15,11 +15,11 @@ import javax.swing.JFileChooser;
  *
  * @author Christian
  */
-public class CommandSave implements CommandInterface
+public class CommandDelete implements CommandInterface
 {
   private EditorView view;
   private EditorModel model;
-  public CommandSave(EditorView view, EditorModel model)
+  public CommandDelete(EditorView view, EditorModel model)
   {
     this.view = view;
     this.model = model;
@@ -28,21 +28,7 @@ public class CommandSave implements CommandInterface
   @Override
   public void execute()
   {
-    JFileChooser fc = view.getFcOpenSave();
-    int choice = fc.showSaveDialog(view);
-    if(choice == JFileChooser.APPROVE_OPTION)
-    {
-      File f = fc.getSelectedFile();
-      
-      try
-      {
-        model.datenSpeichern(f);
-      }
-      catch (Exception ex)
-      {
-        view.getFileLabel().setText(ex.toString());
-      }
-    }
+    
   }
 
   @Override
