@@ -33,7 +33,7 @@ public class EditorModel extends AbstractTableModel
     adressEintraegeDaten = new ArrayList<>();
     adressEintraegeNamen = new ArrayList<>();
     daten = new ArrayList<>();
-    /*
+    
     adressEintraegeNamen.add("Name");
     adressEintraegeDaten.add("Lehner");
     adressEintraegeNamen.add("Telefon");
@@ -41,7 +41,7 @@ public class EditorModel extends AbstractTableModel
     adressEintraegeDaten.add("122345");
     adressEintraegeDaten.add("122345");
     daten.add(adressEintraegeDaten);
-    */
+    
   }
 
   @Override

@@ -44,6 +44,16 @@ public class CommandOpen implements CommandInterface
       {
         view.getFileLabel().setText(ex.toString());
       }
+      
+      for(int i = 0; model.getRowCount() > i; i++)
+      {
+       for(int j = 0; model.getColumnCount() > j; j++)
+       {
+         view.getFileLabel().setText(model.getRowCount() + " " + model.getColumnCount());
+         view.getEditorTable().setValueAt(model.getValueAt(i,j), i, j);
+         
+       }
+      }
     }
   }
 
