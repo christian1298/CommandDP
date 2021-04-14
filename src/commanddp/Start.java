@@ -26,6 +26,7 @@ public class Start
   EditorModel Model = new EditorModel();
   CommandInvoker invoker = new CommandInvoker();
   
+  Fenster.getEditorTable().setModel(Model);
   CommandController ctrlCommand = new CommandController(Fenster, Model, invoker);
   UndoController ctrlUndo = new UndoController(Fenster, Model);
   

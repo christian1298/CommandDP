@@ -28,7 +28,7 @@ public class CommandDelete implements CommandInterface
   @Override
   public void execute()
   {
-    
+    view.getEditorTable();
   }
 
   @Override
@@ -39,6 +39,6 @@ public class CommandDelete implements CommandInterface
   @Override
   public boolean isUndoable()
   {
-    return false;
+    return true;
   }
 }
