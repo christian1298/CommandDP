@@ -7,11 +7,13 @@
 package commanddp.controller;
 
 import commanddp.View.EditorView;
+import commanddp.controller.commands.CommandDelete;
+import commanddp.controller.commands.CommandInvoker;
 import commanddp.model.EditorModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import javax.swing.JFileChooser;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
@@ -19,21 +21,27 @@ import javax.swing.JFileChooser;
  */
 public class UndoController implements ActionListener
 {
-  EditorView view;
-  EditorModel model;
-  public UndoController(EditorView view, EditorModel model)
+  private EditorView view;
+  private EditorModel model;
+  private CommandInvoker invoker;
+  
+  public UndoController(EditorView view, EditorModel model, CommandInvoker invoker)
   {
     this.view = view;
     this.model = model;
+    this.invoker = invoker;
   }
 
   public void registerEvents()
   {
+    view.getBtnUndo().addActionListener(this);
+    view.getButtonUndo().addActionListener(this);
+    view.getPmUndo().addActionListener(this);
   }
   
   @Override
   public void actionPerformed(ActionEvent e)
   {
-    
+    invoker.undoCommand();
   }
 }

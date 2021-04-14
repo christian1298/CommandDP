@@ -22,20 +22,20 @@ public class Start
 {
   public Start()
   {
-  EditorView Fenster = new EditorView();
-  EditorModel Model = new EditorModel();
+  EditorView fenster = new EditorView();
+  EditorModel model = new EditorModel();
   CommandInvoker invoker = new CommandInvoker();
   
-  Fenster.getEditorTable().setModel(Model);
-  CommandController ctrlCommand = new CommandController(Fenster, Model, invoker);
-  UndoController ctrlUndo = new UndoController(Fenster, Model);
+  fenster.getEditorTable().setModel(model);
+  CommandController ctrlCommand = new CommandController(fenster, model, invoker);
+  UndoController ctrlUndo = new UndoController(fenster, model, invoker);
   
   ctrlCommand.registerEvents();
   ctrlCommand.registerCommands();
   
   ctrlUndo.registerEvents();
     
-  Fenster.setVisible(true);
+  fenster.setVisible(true);
   }
 
   public static void main(String[] args) 

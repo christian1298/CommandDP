@@ -41,6 +41,8 @@ public class CommandController implements ActionListener
     view.getBtnSave().addActionListener(this);
     view.getButtonSave().addActionListener(this);
     view.getPmSave().addActionListener(this);
+    
+    view.getPmDelete().addActionListener(this);
   }
   
   public void registerCommands()

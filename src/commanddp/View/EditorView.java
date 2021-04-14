@@ -131,10 +131,12 @@ public class EditorView extends javax.swing.JFrame
     PmDelete = new javax.swing.JMenuItem();
     PmOpen = new javax.swing.JMenuItem();
     PmSave = new javax.swing.JMenuItem();
+    PmUndo = new javax.swing.JMenuItem();
     FileLabel = new javax.swing.JLabel();
     toolBar = new javax.swing.JToolBar();
     buttonOpen = new javax.swing.JButton();
     buttonSave = new javax.swing.JButton();
+    buttonUndo = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
     EditorTable = new javax.swing.JTable();
     jMenuBar1 = new javax.swing.JMenuBar();
@@ -142,6 +144,7 @@ public class EditorView extends javax.swing.JFrame
     btnOpen = new javax.swing.JMenuItem();
     btnSave = new javax.swing.JMenuItem();
     jMenu2 = new javax.swing.JMenu();
+    btnUndo = new javax.swing.JMenuItem();
 
     fcOpenSave.setCurrentDirectory(new java.io.File("C:\\"));
 
@@ -153,6 +156,16 @@ public class EditorView extends javax.swing.JFrame
 
       PmSave.setText("Save");
       TablePopup.add(PmSave);
+
+      PmUndo.setText("Undo");
+      PmUndo.addActionListener(new java.awt.event.ActionListener()
+      {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
+          PmUndoActionPerformed(evt);
+        }
+      });
+      TablePopup.add(PmUndo);
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
       setTitle("Editor");
@@ -175,6 +188,12 @@ public class EditorView extends javax.swing.JFrame
       buttonSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
       buttonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
       toolBar.add(buttonSave);
+
+      buttonUndo.setText("Undo");
+      buttonUndo.setFocusable(false);
+      buttonUndo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+      buttonUndo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+      toolBar.add(buttonUndo);
 
       getContentPane().add(toolBar, java.awt.BorderLayout.PAGE_START);
 
@@ -220,6 +239,18 @@ public class EditorView extends javax.swing.JFrame
 
       jMenu2.setMnemonic('E');
       jMenu2.setText("Edit");
+
+      btnUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+      btnUndo.setText("Undo");
+      btnUndo.addActionListener(new java.awt.event.ActionListener()
+      {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
+          btnUndoActionPerformed(evt);
+        }
+      });
+      jMenu2.add(btnUndo);
+
       jMenuBar1.add(jMenu2);
 
       setJMenuBar(jMenuBar1);
@@ -232,6 +263,16 @@ public class EditorView extends javax.swing.JFrame
   {//GEN-HEADEREND:event_btnOpenActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_btnOpenActionPerformed
+
+  private void btnUndoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnUndoActionPerformed
+  {//GEN-HEADEREND:event_btnUndoActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_btnUndoActionPerformed
+
+  private void PmUndoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PmUndoActionPerformed
+  {//GEN-HEADEREND:event_PmUndoActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_PmUndoActionPerformed
 
   /**
    * @param args the command line arguments
@@ -288,11 +329,14 @@ public class EditorView extends javax.swing.JFrame
   private javax.swing.JMenuItem PmDelete;
   private javax.swing.JMenuItem PmOpen;
   private javax.swing.JMenuItem PmSave;
+  private javax.swing.JMenuItem PmUndo;
   private javax.swing.JPopupMenu TablePopup;
   private javax.swing.JMenuItem btnOpen;
   private javax.swing.JMenuItem btnSave;
+  private javax.swing.JMenuItem btnUndo;
   private javax.swing.JButton buttonOpen;
   private javax.swing.JButton buttonSave;
+  private javax.swing.JButton buttonUndo;
   private javax.swing.JFileChooser fcOpenSave;
   private javax.swing.JMenu jMenu1;
   private javax.swing.JMenu jMenu2;
@@ -300,4 +344,28 @@ public class EditorView extends javax.swing.JFrame
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JToolBar toolBar;
   // End of variables declaration//GEN-END:variables
+
+  /**
+   * @return the PmUndo
+   */
+  public javax.swing.JMenuItem getPmUndo()
+  {
+    return PmUndo;
+  }
+
+  /**
+   * @return the btnUndo
+   */
+  public javax.swing.JMenuItem getBtnUndo()
+  {
+    return btnUndo;
+  }
+
+  /**
+   * @return the buttonUndo
+   */
+  public javax.swing.JButton getButtonUndo()
+  {
+    return buttonUndo;
+  }
 }
