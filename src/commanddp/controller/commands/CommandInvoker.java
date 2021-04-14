@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Stack;
 
 /**
- *
+ *  Map Event sources to functions
  * @author Christian
  */
 public class CommandInvoker 
@@ -24,11 +24,20 @@ public class CommandInvoker
     undoStack = new Stack();
   }
   
+  /**
+   * Add function to the database of functions
+   * @param key Event Source
+   * @param value Function to be executed on event trigger
+   */
   public void addCommand(Object key, CommandInterface value)
   {
     commands.put(key, value);
   }
   
+  /**
+   * Execute function
+   * @param key function to be executed
+   */
   public void executeCommand(Object key)
   {
     commands.get(key).execute();
@@ -38,6 +47,9 @@ public class CommandInvoker
     }
   }
   
+  /**
+   * Pop undoStack and undo last function
+   */
   public void undoCommand()
   {
     

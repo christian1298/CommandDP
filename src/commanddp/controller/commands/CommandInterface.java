@@ -7,7 +7,7 @@
 package commanddp.controller.commands;
 
 /**
- *
+ * Function-Interface
  * @author Christian
  */
 public interface CommandInterface 

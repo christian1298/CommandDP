@@ -12,7 +12,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
- *
+ * Open File and insert data into JTable
  * @author Christian
  */
 public class CommandOpen implements CommandInterface
@@ -25,6 +25,9 @@ public class CommandOpen implements CommandInterface
     this.model = model;
   }
 
+  /**
+   * Opens a File from Disc and includes data into JTable
+   */
   @Override
   public void execute()
   {
@@ -55,6 +58,9 @@ public class CommandOpen implements CommandInterface
   {
   }
 
+   /**
+   * @return Returns true if function can be undone
+   */
   @Override
   public boolean isUndoable()
   {

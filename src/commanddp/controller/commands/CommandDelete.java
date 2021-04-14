@@ -28,6 +28,9 @@ public class CommandDelete implements CommandInterface
     stack = new Stack();
   }
 
+  /**
+   * Deletes the Selected Row in a JTable
+   */
   @Override
   public void execute()
   {
@@ -42,6 +45,9 @@ public class CommandDelete implements CommandInterface
     model.eintragLoeschen(selectedRow);
   }
 
+  /**
+   * Undoes the Deletion of a Row in a JTable
+   */
   @Override
   public void undo()
   {
@@ -55,6 +61,9 @@ public class CommandDelete implements CommandInterface
     
   }
 
+  /**
+   * @return Returns true if function can be undone
+   */
   @Override
   public boolean isUndoable()
   {

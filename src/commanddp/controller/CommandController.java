@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * Register Button listeners
  * @author Christian
  */
 public class CommandController implements ActionListener
@@ -32,6 +32,9 @@ public class CommandController implements ActionListener
     this.invoker = invoker;
   }
 
+  /**
+   * Add EventListener to buttons
+   */
   public void registerEvents()
   {
     view.getBtnOpen().addActionListener(this);
@@ -45,6 +48,9 @@ public class CommandController implements ActionListener
     view.getPmDelete().addActionListener(this);
   }
   
+  /**
+   * Create Mapping from event source to executable function
+   */
   public void registerCommands()
   {
     CommandOpen cmdOpen = new CommandOpen(view,model);
@@ -63,8 +69,8 @@ public class CommandController implements ActionListener
   }
   
   /**
-   * Polymorphismus!! zur entscheidung welche Aktion durchgefürht wird
-   * @param e evt.getSource liefert Eventquelle als key für Hashmap im invoker
+   * Execute function corresponding event source
+   * @param e evt.getSource is the event source
    */
   
   @Override

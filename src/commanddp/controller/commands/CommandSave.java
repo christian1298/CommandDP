@@ -12,7 +12,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
- *
+ * Save JTable data on disc
  * @author Christian
  */
 public class CommandSave implements CommandInterface
@@ -25,6 +25,9 @@ public class CommandSave implements CommandInterface
     this.model = model;
   }
 
+  /**
+   * Saves data from a JTable into a file on disc
+   */
   @Override
   public void execute()
   {
@@ -50,6 +53,9 @@ public class CommandSave implements CommandInterface
   {
   }
 
+   /**
+   * @return Returns true if function can be undone
+   */
   @Override
   public boolean isUndoable()
   {

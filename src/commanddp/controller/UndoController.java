@@ -16,7 +16,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
+ * Undo buttons undo the last action that can be undone
  * @author Christian
  */
 public class UndoController implements ActionListener
@@ -32,6 +32,9 @@ public class UndoController implements ActionListener
     this.invoker = invoker;
   }
 
+  /**
+   * register buttons to the undo action
+   */
   public void registerEvents()
   {
     view.getBtnUndo().addActionListener(this);
@@ -39,6 +42,10 @@ public class UndoController implements ActionListener
     view.getPmUndo().addActionListener(this);
   }
   
+  /**
+   * Undo an action from event e
+   * @param e event source / function to be undone
+   */
   @Override
   public void actionPerformed(ActionEvent e)
   {
