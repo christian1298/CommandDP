@@ -13,6 +13,38 @@ public class EditorView extends javax.swing.JFrame
 {
 
   /**
+   * @return the btnAddColumn
+   */
+  public javax.swing.JMenuItem getBtnAddColumn()
+  {
+    return btnAddColumn;
+  }
+
+  /**
+   * @return the btnAddRow
+   */
+  public javax.swing.JMenuItem getBtnAddRow()
+  {
+    return btnAddRow;
+  }
+
+  /**
+   * @return the buttonAddColumn
+   */
+  public javax.swing.JButton getButtonAddColumn()
+  {
+    return buttonAddColumn;
+  }
+
+  /**
+   * @return the buttonAddRow
+   */
+  public javax.swing.JButton getButtonAddRow()
+  {
+    return buttonAddRow;
+  }
+
+  /**
    * @return the fcOpenSave
    */
   public javax.swing.JFileChooser getFcOpenSave()
@@ -137,6 +169,8 @@ public class EditorView extends javax.swing.JFrame
     buttonOpen = new javax.swing.JButton();
     buttonSave = new javax.swing.JButton();
     buttonUndo = new javax.swing.JButton();
+    buttonAddRow = new javax.swing.JButton();
+    buttonAddColumn = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
     EditorTable = new javax.swing.JTable();
     jMenuBar1 = new javax.swing.JMenuBar();
@@ -145,10 +179,20 @@ public class EditorView extends javax.swing.JFrame
     btnSave = new javax.swing.JMenuItem();
     jMenu2 = new javax.swing.JMenu();
     btnUndo = new javax.swing.JMenuItem();
+    btnAddRow = new javax.swing.JMenuItem();
+    btnAddColumn = new javax.swing.JMenuItem();
+    btnDelete = new javax.swing.JMenuItem();
 
     fcOpenSave.setCurrentDirectory(new java.io.File("C:\\"));
 
       PmDelete.setText("Delete");
+      PmDelete.addActionListener(new java.awt.event.ActionListener()
+      {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
+          PmDeleteActionPerformed(evt);
+        }
+      });
       TablePopup.add(PmDelete);
 
       PmOpen.setText("Open");
@@ -189,11 +233,25 @@ public class EditorView extends javax.swing.JFrame
       buttonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
       toolBar.add(buttonSave);
 
-      buttonUndo.setText("Undo");
+      buttonUndo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/Undo24.gif"))); // NOI18N
+      buttonUndo.setToolTipText("Undo");
       buttonUndo.setFocusable(false);
       buttonUndo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
       buttonUndo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
       toolBar.add(buttonUndo);
+
+      buttonAddRow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/RowInsertAfter24.gif"))); // NOI18N
+      buttonAddRow.setToolTipText("Add Row");
+      buttonAddRow.setFocusable(false);
+      buttonAddRow.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+      buttonAddRow.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+      toolBar.add(buttonAddRow);
+
+      buttonAddColumn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/ColumnInsertAfter24.gif"))); // NOI18N
+      buttonAddColumn.setFocusable(false);
+      buttonAddColumn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+      buttonAddColumn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+      toolBar.add(buttonAddColumn);
 
       getContentPane().add(toolBar, java.awt.BorderLayout.PAGE_START);
 
@@ -241,6 +299,7 @@ public class EditorView extends javax.swing.JFrame
       jMenu2.setText("Edit");
 
       btnUndo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+      btnUndo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/Undo24.gif"))); // NOI18N
       btnUndo.setText("Undo");
       btnUndo.addActionListener(new java.awt.event.ActionListener()
       {
@@ -250,6 +309,25 @@ public class EditorView extends javax.swing.JFrame
         }
       });
       jMenu2.add(btnUndo);
+
+      btnAddRow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/RowInsertAfter24.gif"))); // NOI18N
+      btnAddRow.setText("Add Row");
+      jMenu2.add(btnAddRow);
+
+      btnAddColumn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/ColumnInsertAfter24.gif"))); // NOI18N
+      btnAddColumn.setText("Add Column");
+      jMenu2.add(btnAddColumn);
+
+      btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commanddp/View/Icons/Delete24.gif"))); // NOI18N
+      btnDelete.setText("Delete");
+      btnDelete.addActionListener(new java.awt.event.ActionListener()
+      {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
+          btnDeleteActionPerformed(evt);
+        }
+      });
+      jMenu2.add(btnDelete);
 
       jMenuBar1.add(jMenu2);
 
@@ -273,6 +351,16 @@ public class EditorView extends javax.swing.JFrame
   {//GEN-HEADEREND:event_PmUndoActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_PmUndoActionPerformed
+
+  private void PmDeleteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PmDeleteActionPerformed
+  {//GEN-HEADEREND:event_PmDeleteActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_PmDeleteActionPerformed
+
+  private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteActionPerformed
+  {//GEN-HEADEREND:event_btnDeleteActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_btnDeleteActionPerformed
 
   /**
    * @param args the command line arguments
@@ -331,9 +419,14 @@ public class EditorView extends javax.swing.JFrame
   private javax.swing.JMenuItem PmSave;
   private javax.swing.JMenuItem PmUndo;
   private javax.swing.JPopupMenu TablePopup;
+  private javax.swing.JMenuItem btnAddColumn;
+  private javax.swing.JMenuItem btnAddRow;
+  private javax.swing.JMenuItem btnDelete;
   private javax.swing.JMenuItem btnOpen;
   private javax.swing.JMenuItem btnSave;
   private javax.swing.JMenuItem btnUndo;
+  private javax.swing.JButton buttonAddColumn;
+  private javax.swing.JButton buttonAddRow;
   private javax.swing.JButton buttonOpen;
   private javax.swing.JButton buttonSave;
   private javax.swing.JButton buttonUndo;
@@ -367,5 +460,13 @@ public class EditorView extends javax.swing.JFrame
   public javax.swing.JButton getButtonUndo()
   {
     return buttonUndo;
+  }
+
+  /**
+   * @return the btnDelete
+   */
+  public javax.swing.JMenuItem getBtnDelete()
+  {
+    return btnDelete;
   }
 }

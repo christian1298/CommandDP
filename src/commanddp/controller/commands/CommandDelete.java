@@ -8,7 +8,6 @@ package commanddp.controller.commands;
 
 import commanddp.View.EditorView;
 import commanddp.model.EditorModel;
-import java.lang.reflect.Array;
 import java.util.Stack;
 
 /**
@@ -51,14 +50,19 @@ public class CommandDelete implements CommandInterface
   @Override
   public void undo()
   {
-    Object[] row = stack.pop();
+    Object[] row;
+    try{
+    row = stack.pop();
     model.eintragHinzufuegen();
     
     for(int i = 0; i < model.getColumnCount(); i++)
     {
        model.setValueAt(row[i], model.getRowCount()- 1 , i);
     }
-    
+    }
+    catch(Exception e){
+      System.out.println("Stack Leer");
+    }
   }
 
   /**

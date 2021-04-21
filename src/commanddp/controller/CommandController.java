@@ -7,6 +7,8 @@
 package commanddp.controller;
 
 import commanddp.View.EditorView;
+import commanddp.controller.commands.CommandAddColumn;
+import commanddp.controller.commands.CommandAddRow;
 import commanddp.controller.commands.CommandDelete;
 import commanddp.controller.commands.CommandInvoker;
 import commanddp.controller.commands.CommandOpen;
@@ -46,6 +48,13 @@ public class CommandController implements ActionListener
     view.getPmSave().addActionListener(this);
     
     view.getPmDelete().addActionListener(this);
+    view.getBtnDelete().addActionListener(this);
+    
+    view.getButtonAddRow().addActionListener(this);
+    view.getBtnAddRow().addActionListener(this);
+    
+    view.getButtonAddColumn().addActionListener(this);
+    view.getBtnAddColumn().addActionListener(this);
   }
   
   /**
@@ -56,6 +65,8 @@ public class CommandController implements ActionListener
     CommandOpen cmdOpen = new CommandOpen(view,model);
     CommandSave cmdSave = new CommandSave(view,model);
     CommandDelete cmdDelete = new CommandDelete(view,model);
+    CommandAddRow cmdAddRow = new CommandAddRow(view,model);
+    CommandAddColumn cmdAddColumn = new CommandAddColumn(view,model);
     
     invoker.addCommand(view.getBtnOpen(), cmdOpen);
     invoker.addCommand(view.getButtonOpen(), cmdOpen);
@@ -66,6 +77,13 @@ public class CommandController implements ActionListener
     invoker.addCommand(view.getPmSave(), cmdSave);
     
     invoker.addCommand(view.getPmDelete(), cmdDelete);
+    invoker.addCommand(view.getBtnDelete(), cmdDelete);
+    
+    invoker.addCommand(view.getButtonAddRow(), cmdAddRow);
+    invoker.addCommand(view.getBtnAddRow(), cmdAddRow);
+    
+    invoker.addCommand(view.getButtonAddColumn(), cmdAddColumn);
+    invoker.addCommand(view.getBtnAddColumn(), cmdAddColumn);
   }
   
   /**
